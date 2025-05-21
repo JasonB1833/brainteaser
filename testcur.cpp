@@ -1,7 +1,11 @@
-
-
-
+#include <iostream>
 #include <ncurses.h>
+
+
+
+// prototypes
+
+
 
 int main() 
 {
