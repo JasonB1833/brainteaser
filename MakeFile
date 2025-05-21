@@ -1,0 +1,4 @@
+
+
+g++ -lncurses brainteaser.cpp -o brainteaser
+
