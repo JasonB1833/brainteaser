@@ -7,7 +7,7 @@ Clearly this is very early stage but I plan to have brain teaser questions up to
 
 Currently I only have basic arithmetic in the core game functions and it doesn't function in a loop
 
-### installation guide:
+### Work In Progress:
 
 As mentioned before its rather early stage and my make file isn't even properly set up just yet but if you would like to take a look at my code and see what I've got you could individually build each file or browse what little code I've got. 
 
