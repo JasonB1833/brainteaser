@@ -12,7 +12,7 @@ int main()
 		int ch;
 
 		initscr();						// start curses mode
-		raw();							// line buffering disabled
+		raw();						  	// line buffering disabled
 		cbreak();
 		keypad(stdscr, TRUE);			// enable f1 f2 etc
 		noecho();						// dont echo() while we do getch
@@ -44,7 +44,7 @@ int main()
 				for (int i = 0; i<4; i++) 
 				{
 						if (i == highlight) wattron(win, A_REVERSE);
-						mvwprintw(win, i+1,1,menuOpts[i].c_str());
+						mvwprintw(win, (LINES /2)+i,(COLS/2),menuOpts[i].c_str());
 						wattroff(win, A_REVERSE);
 				}
 				choice = wgetch(win);
