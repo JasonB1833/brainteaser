@@ -34,6 +34,7 @@ int menuGen(WINDOW* win, std::string options[], int size) {
 		int rows,cols;
 		getmaxyx(win,rows,cols);
 
+		int result;
 
 		while (1)
 		{
@@ -62,12 +63,15 @@ int menuGen(WINDOW* win, std::string options[], int size) {
 						  if (highlight == 3) break;
 						  highlight++;
 						  break;
+						case KEY_ENTER:
+						  result = highlight;
+						  break;
 						default:
 						  break;
 				}
 				if(choice ==10) break;
 
 		}
-		return 0;
+		return result;
 
 }

@@ -38,8 +38,9 @@ int main()
 		
 		std::string menuOpts[4] = {"Play", "High Scores", "Study", "Options"};
 		
-		menuGen(win, menuOpts, 4);
+		int playerCh = menuGen(win, menuOpts, 4);
 
+		mvwprintw(win, 1,1, "%d", playerCh);
 		
 		refresh(); 						// print it on the real screen
 		wrefresh(win);
