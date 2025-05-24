@@ -1,6 +1,6 @@
-
+#include <ncurses.h>
 #include "handler.h"
-#include "arithmetic.h"
+//#include "arithmetic.h"
 
 int decHandler(int a){
 
@@ -8,7 +8,7 @@ int decHandler(int a){
 
 		switch (a){ 
 				case 1:
-						arith();
+					//	arith();
 						break;
 				case 2:
 					//	sub();
@@ -25,3 +25,49 @@ int decHandler(int a){
 		return 0;
 }
 
+int menuGen(WINDOW* win, std::string options[], int size) {
+
+
+		int highlight = 0;
+		int choice; 
+
+		int rows,cols;
+		getmaxyx(win,rows,cols);
+
+
+		while (1)
+		{
+				for (int i = 0; i<size; i++) 
+				{
+						int x=(cols - options[i].length())/2;
+						int y=(rows - size)/2 +i;
+
+						if (i == highlight)
+							   	wattron(win, A_REVERSE);
+						
+						mvwprintw(win, y,x,"%s",options[i].c_str());
+						wattroff(win, A_REVERSE);
+
+				}
+
+				choice = wgetch(win);
+
+				switch(choice)
+				{
+						case KEY_UP:
+						  if (highlight == 0) break;
+						  highlight--;
+						  break;
+						case KEY_DOWN:
+						  if (highlight == 3) break;
+						  highlight++;
+						  break;
+						default:
+						  break;
+				}
+				if(choice ==10) break;
+
+		}
+		return 0;
+
+}

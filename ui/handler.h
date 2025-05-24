@@ -2,14 +2,25 @@
 #define HANDLER_H
 
 
-/* handler will take the input of user and initiate the 
-   game loop by passing whatever game mode is chosen.
+#include <string>
+#include <vector>
+#include <ncurses.h>
 
-   takes int a  returns 0 if no errors occur.
+/* handler will take the input of the user and pass it 
+
+   to game logic or whatever backend process is needed
+
+   @Params
+   
+TODO: this function may not be necessary
+   decHandler takes int a  returns 0 if no errors occur.
+
+   menuGen takes window and string array of menu options, returns index of user choice
 */
 
-int selection(int a);
+int decHandler(int a);
 
+int menuGen(WINDOW* win, std::string options[], int size);
 
 
 

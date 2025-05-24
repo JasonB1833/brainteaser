@@ -2,6 +2,7 @@
 #include <ncurses.h>
 #include <string>
 
+#include "handler.h"
 
 // prototypes
 
@@ -36,36 +37,8 @@ int main()
 		keypad(win, true);
 		
 		std::string menuOpts[4] = {"Play", "High Scores", "Study", "Options"};
-		int choice;
-		int highlight = 0;
-
-		while (1)
-		{
-				for (int i = 0; i<4; i++) 
-				{
-						if (i == highlight) wattron(win, A_REVERSE);
-						mvwprintw(win, (LINES /2)+i,(COLS/2),menuOpts[i].c_str());
-						wattroff(win, A_REVERSE);
-				}
-				choice = wgetch(win);
-
-				switch(choice)
-				{
-						case KEY_UP:
-						  if (highlight == 0) break;
-						  highlight--;
-						  break;
-						case KEY_DOWN:
-						  if (highlight == 3) break;
-						  highlight++;
-						  break;
-						default:
-						  break;
-				}
-				if(choice ==10) break;
-
-		}
-
+		
+		menuGen(win, menuOpts, 4);
 
 		
 		refresh(); 						// print it on the real screen
